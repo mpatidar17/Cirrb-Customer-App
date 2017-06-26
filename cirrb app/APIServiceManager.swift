@@ -301,7 +301,7 @@ class APIServiceManager: NSObject {
                 }
             })
     }
-    func setOrder(sub_total: String, delivery_fees: String, total: String, orderDict: NSMutableArray ,onComplete: ServiceResponse?){
+    func setOrder(sub_total: String, delivery_fees: String, total: String, id: String, branch_id: String, resturent_id: String, quantity: String ,onComplete: ServiceResponse?){
         
        let URL = root_url + "setOrderNew"
         
@@ -313,59 +313,17 @@ class APIServiceManager: NSObject {
         configuration.httpAdditionalHeaders = headers
 
         self.session = Alamofire.SessionManager(configuration: configuration)
-        var idOrder: String = ""
-        var branch_id: String = ""
-        var resturent_id: String = ""
-        var quantity: String = ""
-        if orderDict.count > 0 {
-
-            
-            for i in 0..<orderDict.count {
-               
-                if idOrder.characters.count != 0 {
-                    idOrder = idOrder + "," + String((((orderDict.object(at: i) as AnyObject).value(forKey: "id") as AnyObject) as? Int)!)
-                }else{
-                    idOrder = String((((orderDict.object(at: i) as AnyObject).value(forKey: "id") as AnyObject) as? Int)!)
-                }
-                
-                if branch_id.characters.count != 0 {
-                    branch_id = branch_id + "," + (UserDefaults.standard.object(forKey: "branch_id") as? String)!
-                }else{
-                    branch_id = (UserDefaults.standard.object(forKey: "branch_id") as? String)!
-                }
-                
-                if resturent_id.characters.count != 0 {
-                    resturent_id = resturent_id + "," + String((((orderDict.object(at: i) as AnyObject).value(forKey: "restaurant_id") as AnyObject) as? Int)!)
-                }else{
-                    resturent_id = String((((orderDict.object(at: i) as AnyObject).value(forKey: "restaurant_id") as AnyObject) as? Int)!)
-                }
-                
-                if quantity.characters.count != 0 {
-                    quantity = quantity + "," + String((((orderDict.object(at: i) as AnyObject).value(forKey: "quantity") as AnyObject) as? Float)!)
-                }else{
-                    quantity = String((((orderDict.object(at: i) as AnyObject).value(forKey: "quantity") as AnyObject) as? Float)!)
-                }
-            }
-            
-            print("id: ", idOrder)
-            print("branch_id: ", branch_id)
-            print("resturent_id: ", resturent_id)
-            print("quantity: ", quantity)
-        }
-        
-        
+       
         let params = [
             "user_id" : (UserDefaults.standard.object(forKey: Constant.User.USER_ID) as? String)! ,
             "sub_total" : sub_total,
             "delivery_fees": delivery_fees,
             "total": total,
-            "id": idOrder,
+            "id": id,
             "branch_id": branch_id,
             "resturent_id": resturent_id,
             "quantity": quantity
         ] as [String : Any]
-
-        
         
         print("params is: ", params)
         
@@ -373,6 +331,7 @@ class APIServiceManager: NSObject {
                              method: .post,
                              parameters: params
             ).responseJSON(completionHandler: {(response) in
+                debugPrint(response)
                 if response.result.isSuccess && response.response?.statusCode == 200{
                     let details  = response.result.value!
                     print("details is: ",details)

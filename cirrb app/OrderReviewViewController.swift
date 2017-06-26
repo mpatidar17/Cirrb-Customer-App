@@ -41,6 +41,11 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
     var delivery_charge = Float()
     var total_charges: String = ""
     
+    var idOrder = String()
+    var branch_id = String()
+    var resturent_id = String()
+    var quantity = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -137,8 +142,7 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
         let quantity = Int(((selectedMenuItemArray.object(at: indexPath.row) as AnyObject).value(forKey: "quantity") as AnyObject) as! Float)
         
         cell.lblMenuQuantity?.text = String(quantity)
-        
-        
+     
         
         return cell
     }
@@ -157,6 +161,40 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
     
 
     @IBAction func clickConfirm(_ sender: Any) {
+        if selectedMenuItemArray.count > 0 {
+            
+            for i in 0..<selectedMenuItemArray.count {
+                
+                if self.idOrder.characters.count != 0 {
+                    self.idOrder = self.idOrder + "," + String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "id") as AnyObject) as? Int)!)
+                }else{
+                    self.idOrder = String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "id") as AnyObject) as? Int)!)
+                }
+                
+                if self.branch_id.characters.count != 0 {
+                    self.branch_id = self.branch_id + "," + (UserDefaults.standard.object(forKey: "branch_id") as? String)!
+                }else{
+                    self.branch_id = (UserDefaults.standard.object(forKey: "branch_id") as? String)!
+                }
+                
+                if self.resturent_id.characters.count != 0 {
+                    self.resturent_id = self.resturent_id + "," + String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "restaurant_id") as AnyObject) as? Int)!)
+                }else{
+                    self.resturent_id = String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "restaurant_id") as AnyObject) as? Int)!)
+                }
+                
+                if self.quantity.characters.count != 0 {
+                    self.quantity = self.quantity + "," + String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "quantity") as AnyObject) as? Float)!)
+                }else{
+                    self.quantity = String((((selectedMenuItemArray.object(at: i) as AnyObject).value(forKey: "quantity") as AnyObject) as? Float)!)
+                }
+            }
+            
+            print("id: ", self.idOrder)
+            print("branch_id: ", self.branch_id)
+            print("resturent_id: ", self.resturent_id)
+            print("quantity: ", self.quantity)
+        }
         
         if appDel.flagLanguage == 1{
             
@@ -166,12 +204,11 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
             //event handler with closure
             alert.addAction(UIAlertAction(title: "نعم فعلا", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction) in
                 
-                
                 if self.isInternetAvailable() {
                     let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
                     loadingNotification.label.text = "جار التحميل"
                     
-                    self.setOrder(sub_total: self.total_charges, delivery_fees: String(self.delivery_charge), total: String(self.grand_total), orderDict: self.selectedMenuItemArray)
+                    self.setOrder(sub_total: self.total_charges, delivery_fees: String(self.delivery_charge), total: String(self.grand_total), id: self.idOrder, branch_id: self.branch_id, resturent_id: self.resturent_id, quantity: self.quantity)
                 }else {
                     self.ShowAlert("يرجى التحقق من اتصال الشبكة");
                 }
@@ -194,7 +231,7 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
                 
                 loadingNotification.label.text = "Loading"
                 
-                self.setOrder(sub_total: self.total_charges, delivery_fees: String(self.delivery_charge), total: String(self.grand_total), orderDict: self.selectedMenuItemArray)
+                self.setOrder(sub_total: self.total_charges, delivery_fees: String(self.delivery_charge), total: String(self.grand_total), id: self.idOrder, branch_id: self.branch_id, resturent_id: self.resturent_id, quantity: self.quantity)
             }else {
                 self.ShowAlert("Please check network connection");
             }
@@ -206,9 +243,10 @@ class OrderReviewViewController: BaseViewController , UITableViewDelegate , UITa
         }
     }
     
-    private func setOrder(sub_total: String, delivery_fees: String, total: String, orderDict: NSMutableArray) {
-        print("orderDict is: ", orderDict)
-        self.appDel.apiManager.setOrder(sub_total: sub_total, delivery_fees: delivery_fees, total: total, orderDict: orderDict, onComplete: {
+    private func setOrder(sub_total: String, delivery_fees: String, total: String, id: String, branch_id: String, resturent_id: String, quantity: String) {
+//        print("orderDict is: ", orderDict)
+        
+        self.appDel.apiManager.self.setOrder(sub_total: self.total_charges, delivery_fees: String(self.delivery_charge), total: String(self.grand_total), id: self.idOrder, branch_id: self.branch_id, resturent_id: self.resturent_id, quantity: self.quantity, onComplete: {
             (details, error) in
             MBProgressHUD.hide(for: self.view, animated: true)
             

@@ -540,8 +540,15 @@ class HomeViewController: BaseViewController, CLLocationManagerDelegate, SWRevea
         
         print("userObject",userObject)
         
-        Alamofire.request(urlUserCoordinates, method: .post, parameters: userObject, encoding: JSONEncoding.default)
-            .responseJSON { response in
+          let auth_token = UserDefaults.standard.object(forKey: Constant.User.AUTH_TOKEN) as? String
+          print("auth_token",auth_token!)
+            
+            let Auth_header : HTTPHeaders = [ "Authorization" : auth_token! ]
+        
+      //  Alamofire.request(urlUserCoordinates, method: .post, parameters: userObject, encoding: JSONEncoding.default)
+      //      .responseJSON { response in
+        
+                Alamofire.request(urlUserCoordinates, method: .post, parameters: userObject, encoding: JSONEncoding.default, headers: Auth_header).responseJSON { response in
                 
                 print("response is: ",response)
                 
