@@ -1,0 +1,67 @@
+/* 
+  Localizable.strings
+  cirrb app
+
+  Created by Yuvasoft on 6/13/17.
+  Copyright © 2017 3WebBox, Inc. All rights reserved.
+*/
+"Home" = "Home";
+"Order History" = "اOrder History";
+"Profile" = "اProfile";
+"Logout" = "Logout";
+"Are you sure want to logout?" = "Are you sure want to logout?";
+"No" = "No";
+"Yes" = "Yes";
+
+"Current Orders" = "CURRENT ORDERS";
+"New Order" = "NEW ORDER";
+
+"Restaurant" = "RESTAURENT";
+"No restaurant available near by you" = "No restaurant available near by you.";
+
+"MENU" = "MENU";
+"Total" = "Total";
+"Menu for restaurant not available" = "Menu for restaurant not available.";
+"Continue" = "Continue";
+
+"REVIEW" = "REVIEW";
+"Once order is confirmed we will dispatch your order to the colsest driver" = "Once order is confirmed we will dispatch your order to the colsest driver.";
+"Have a promotional code or coupon ?" = "Have a promotional code or coupon ?";
+"Order total" =	"Order total:";
+"Delivery charges" = "Delivery charges:";
+"Grand total" = "Grand total:";
+"Confirm" = "Confirm";
+
+
+"Order Complete" = "ORDER COMPLETE";
+"We've recieved your order. Cirrb is locating the closest driver to deliver your order" = "We've recieved your order. Cirrb is locating the closest driver to deliver your order.";
+"TRACK MY ORDER" = "TRACK MY ORDER";
+
+
+"Orders" = "Orders";
+"Order is not available" = "Order is not available.";
+
+
+"Order History" = "Order History";
+"Driver Details" = "Driver Details:";
+"Name" = "Name:";
+"Agent Id" = "Agent Id:";
+"Phone" = "Phone:";
+"Order total:" =	"Order total:";
+"Delivery charges:" = "Delivery charges:";
+"Grand total:" = "Grand total:";
+"Paid by you" = "Paid by you:";
+"Order Status" = "Order Status:";
+"Cancel Order" = "CANCEL ORDER";
+
+"Balance" = "Balance";
+"Last Payed" = "Last Payed";
+"Total Order" = "Total Order";
+"Order Limit" = "Order Limit";
+"PROFILE"	= "Profile";
+"Please Wait"	= "Please Wait";
+"First Name" = "First Name";
+"Last Name" = "Last Name";
+"Mobile Number" = "Mobile Number";
+"Save" = "Save";
+"Email" = "Email";

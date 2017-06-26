@@ -1,0 +1,6 @@
+framework module IQURLConnection {
+  umbrella header "IQURLConnection-umbrella.h"
+
+  export *
+  module * { export * }
+}

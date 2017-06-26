@@ -1,0 +1,6 @@
+framework module IQCircularProgressView {
+  umbrella header "IQCircularProgressView-umbrella.h"
+
+  export *
+  module * { export * }
+}

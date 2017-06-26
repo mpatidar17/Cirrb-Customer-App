@@ -1,0 +1,6 @@
+framework module IQNetworkTaskManager {
+  umbrella header "IQNetworkTaskManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

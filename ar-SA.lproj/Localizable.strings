@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  cirrb app
+
+  Created by Yuvasoft on 6/13/17.
+  Copyright © 2017 3WebBox, Inc. All rights reserved.
+*/
+"Home" = "الرئيسية";
+"Order History" = "الطلبات السابقة";
+"Profile" = "الملف الشخصي";
+"Logout" = "تسجيل الخروج";
+"Are you sure want to logout?" = "هل أنت متأكد من تسجيل الخروج";
+"No" = "لا";
+"Yes" = "نعم";
+
+
+
+"Current Orders" = "الطلبات الحالية";
+"New Order" = "طلب جديد";
+
+
+"Restaurant" = "المطاعم";
+"No restaurant available near by you" = "لا توجد مطاعم قريبة منك";
+
+"MENU" = "قائمة طعام";
+"Total" = "الإجمالي";
+"Menu for restaurant not available" = "قائمة الطعام غير متوفرة";
+"Continue" = "متابعة";
+
+
+"REVIEW" = "إعادة النظر";
+"Once order is confirmed we will dispatch your order to the colsest driver" = "	عند إتمامك للطلب سيتم البحث عن أقرب سائق لخدمتك";
+"Have a promotional code or coupon ?" = "لدي كود او كوبون خصم";
+"Order total" = ":مجموع الطلب";
+"Delivery charges" = ":عمولة التوصيل";
+"Grand total" = ":إجمالي المبلغ";
+"Confirm" = "تأكيد";
+
+"Order Complete" = "تم إكمال الطلب";
+"We've recieved your order. Cirrb is locating the closest driver to deliver your order" = "	لقد تم إستلام طلبك وجاري البحث عن أقرب سائق لتوصيل طلبك";
+"TRACK MY ORDER" = "تتبع الطلب";
+
+"Orders" = "طلب";
+"Order is not available" = "الطلب غير متاح";
+
+"Order History" = "تاريخ الطلب";
+"Driver Details" = ":معلومات السائق";
+"Name" = ":اسم";
+"Agent Id" = ":معرف الوكيل";
+"Phone" = ":هاتف";
+"Order total:" =	":مجموع الطلب";
+"Delivery charges:" = ":تكلفة التوصيل";
+"Grand total:" = ":إجمالي المبلغ";
+"Paid by you" = ":مدفوعة من قبلك";
+"Order Status" = ":حالة الطلب";
+"Cancel Order" = "الغاء الطلب";
+
+"Balance" = "الرصيد المتاح";
+"Last Payed" = "أخر مبلغ تم دفعه";
+"Total Order" = "إجمالي الطلبات";
+"Order Limit" = "حد الطلب";
+"PROFILE"	= "الملف الشخصي";
+"Please Wait"	= "الرجاء الإنتظار";
+"First Name" = "الإسم الأول";
+"Last Name" = "الإسم الأخير";
+"Mobile Number" = "رقم الجوال";
+"Save" = "حفظ";
+"Email" = "البريد الإلكتروني";
